@@ -1,5 +1,7 @@
 # mouse-and-eyes
 
+[English](README.en.md) · 中文
+
 **用 Windows 最原始的 API，做 GUI 自动化的五个原语。**
 
 零依赖 · 纯 PowerShell · 每个文件 100 行上下 · MIT
@@ -38,6 +40,23 @@ $bmp.Dispose()
 - ❌ 不处理 DPI 缩放的换算（100% 缩放下最准，其他比例见 [docs/limits.md](docs/limits.md)）
 
 **它的定位是：教学 + 兜底。** 你搞不懂某个框架为什么不工作时，来这里看底下那层。
+
+---
+
+## 效果
+
+拿一个模拟窗口当靶子，用 `Find-ColorBounds` 找那个蓝色按钮（颜色 `#2563EB`、容差 12），红框和十字是算法算出来的结果：
+
+![Find-ColorBounds 找到蓝色按钮后的标注](docs/images/demo-found.png)
+
+```
+找到蓝色: 41,181 - 219,231  (8816 像素)  中心 = 130,206
+```
+
+这个中心点就是 `Invoke-Click` 要去的地方。整条链路只有三步：
+**截图 → 找色算中心 → 点**。没有任何黑盒。
+
+> 两张图分别由 `docs/images/demo-screen.png`（原始）和标注版生成，脚本逻辑就是 `win/Find.ps1` 里的那段循环。
 
 ---
 
