@@ -53,6 +53,33 @@ found blue: 41,181 - 219,231  (8816 px)  center = 130,206
 That center is where `Invoke-Click` would go. Three steps total:
 **screenshot → find color, compute center → click**. No black boxes.
 
+### Real output from the examples
+
+`examples/01-screenshot.ps1` — capture the screen and read the color under the cursor:
+
+```text
+Screen bounds: 0,0 - 2560,1440  (2560x1440)
+Saved screenshot: ...\mouse-and-eyes-shot.png
+Screenshot size: 2321003 bytes
+Cursor at 1400,1096, color there is #1B191C
+```
+
+`examples/02-click-color.ps1` — search for `#2563EB` in `demo-screen.png` (tolerance 12):
+
+```text
+Searching for color #2563EB (tolerance 12)...
+
+Found:
+  bounds  : 41,181 - 219,231
+  size    : 179 x 51
+  center  : 130, 206
+  pixels  : 8816
+
+(dry-run, nothing was clicked; pass -Execute to actually click)
+```
+
+> Captured on a 2560×1440 machine by the same code path. No cosmetics.
+
 ---
 
 ## The five primitives
