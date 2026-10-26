@@ -1,0 +1,13 @@
+# 编译中间产物
+.build/
+
+# 临时截图 / 测试输出
+*.png
+*.jpg
+*.bmp
+!docs/**/*.png
+
+# 编辑器
+.vs/
+.vscode/
+*.user
